@@ -1,5 +1,6 @@
 config ympd 'conf'
-	option host 'localhost'
+	option host '127.0.0.1'
+	option cert ''
 	option port '6600'
 	option webport '8080'
 	option user 'root'

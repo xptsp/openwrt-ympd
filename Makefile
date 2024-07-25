@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ympd
 PKG_VERSION:=1.2.3
-PKG_RELEASE:=2
+PKG_RELEASE:=3
 PKG_MAINTAINER:=Douglas Orend <doug.orend2@gmail.com>
 
 PKG_SOURCE_PROTO:=git
@@ -36,13 +36,17 @@ TARGET_CFLAGS += "-std=gnu99"
 TARGET_LDFLAGS += -lpthread -lmpdclient
 
 define Package/ympd/install
-	mkdir -p $(1)/usr/bin/
-	mkdir -p $(1)/etc/config/
-	mkdir -p $(1)/etc/init.d/
+	$(INSTALL_DIR) $(1)/usr/bin/
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/ympd $(1)/usr/bin/
-	$(INSTALL_BIN) ./etc/init.d/ympd $(1)/etc/init.d/
+
+	$(INSTALL_DIR) $(1)/etc/config/
 	$(INSTALL_DATA) ./etc/config/ympd $(1)/etc/config/
 
+	$(INSTALL_DIR) $(1)/etc/init.d/
+	$(INSTALL_BIN) ./etc/init.d/ympd $(1)/etc/init.d/
+
+	$(INSTALL_DIR) $(1)/etc/uci-defaults/
+	$(INSTALL_BIN) ./etc/uci-defaults/ympd $(1)/etc/uci-defaults/
 endef
 
 $(eval $(call BuildPackage,ympd))
