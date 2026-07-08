@@ -15,7 +15,7 @@ PKG_MAINTAINER:=Douglas Orend <doug.orend2@gmail.com>
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/notandy/ympd
 PKG_SOURCE_VERSION:=612f8fc0b2c47fc89d403e4a044541c6b2b238c8
-PKG_MIRROR_HASH:=06159cb27bbaeffd4946ea4801cfb1bb596eca6f491ceeb3834872fa177690b7
+PKG_MIRROR_HASH:=426aed6c2e761f8099a78b74338b14558f17a7ae1e85c20aeb4b0a3ebc89b4f6
 
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
